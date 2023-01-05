@@ -3,7 +3,7 @@ import tabuleiro.Board;
 import tabuleiro.Piece;
 
 
-public class ChessPiece extends Piece {
+public abstract class ChessPiece extends Piece {
 	
 	private Cor cor;
 
