@@ -8,12 +8,31 @@ import tabuleiro.Position;
 
 public class ChessMatch {
 
+	
+	private int turn;
+	private Cor currentPlayer;
 	private Board board;
 	
 	public ChessMatch() {
 		board = new Board(8,8);
+		turn = 1;
+		currentPlayer = Cor.WHITE;
 		inicialSetup();
 	}
+	
+	public int getTurn() {
+		
+		return turn;
+	}
+	
+	public Cor getCurrentPlayer() {
+		return currentPlayer;
+		
+	}
+	
+	
+	
+	
 	public ChessPiece[][] getPieces(){
 		
 		ChessPiece[][] mat = new ChessPiece[board.getLinhas()][board.getColunas()];
@@ -42,6 +61,7 @@ public class ChessMatch {
 		validateTargetPosition(source,target);
 		validateSourcePosition(source);
 		Piece capturedPiece = makeMovie(source, target);
+		nextTurn()
 		return (ChessPiece)capturedPiece;
 		
 	}
@@ -68,6 +88,11 @@ public class ChessMatch {
 			throw new ChessException("There is no piece on source position");
 			
 		}
+		
+	if(currentPlayer != ((ChessPiece)board.piece(position)).getCor()) {
+			throw new ChessException("A peça escolhida não é sua!");
+			
+		}
 		if(!board.piece(position).isThereAnyPossibleMove()) {
 			throw new ChessException("Não há movimentos possíveis!");
 			
@@ -75,6 +100,15 @@ public class ChessMatch {
 		
 		
 	}
+	
+	private void nextTurn() {
+		turn++;
+		currentPlayer = (currentPlayer == Cor.WHITE) ? Cor.BLACK : Cor.WHITE;
+		
+	}
+	
+	
+	
 	
 	private void placeNewPiece(char coluna, int linha, ChessPiece piece) {
 		board.placePiece(piece, new ChessPosition(coluna, linha).toPosition());
