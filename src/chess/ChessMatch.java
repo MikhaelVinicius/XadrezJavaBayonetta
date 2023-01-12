@@ -8,6 +8,7 @@ import chess.pieces.Bishop;
 import chess.pieces.King;
 import chess.pieces.Knigth;
 import chess.pieces.Pawn;
+import chess.pieces.Queen;
 import chess.pieces.Rook;
 import tabuleiro.Board;
 import tabuleiro.Piece;
@@ -246,6 +247,7 @@ public class ChessMatch {
 	        placeNewPiece('a', 1, new Rook(board, Cor.WHITE));
 	        placeNewPiece('b', 1, new Knigth(board, Cor.WHITE));
 	        placeNewPiece('c', 1, new Bishop(board, Cor.WHITE));
+	        placeNewPiece('d', 1, new Queen(board, Cor.WHITE));
 	        placeNewPiece('e', 1, new King(board, Cor.WHITE));
 	        placeNewPiece('f', 1, new Bishop(board, Cor.WHITE));
 	        placeNewPiece('g', 1, new Knigth(board, Cor.WHITE));
@@ -262,6 +264,7 @@ public class ChessMatch {
 	        placeNewPiece('a', 8, new Rook(board, Cor.BLACK));
 	        placeNewPiece('b', 8, new Knigth(board, Cor.BLACK));
 	        placeNewPiece('c', 8, new Bishop(board, Cor.BLACK));
+	        placeNewPiece('d', 8, new Queen(board, Cor.BLACK));
 	        placeNewPiece('e', 8, new King(board, Cor.BLACK));
 	        placeNewPiece('f', 8, new Bishop(board, Cor.BLACK));
 	        placeNewPiece('g', 8, new Knigth(board, Cor.BLACK));
