@@ -1,15 +1,18 @@
 package chess.pieces;
 
+import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.Cor;
 import tabuleiro.Board;
 import tabuleiro.Position;
 
 public class Pawn extends ChessPiece {
+	
+	private ChessMatch chessMatch;
 
-	public Pawn(Board board, Cor cor) {
+	public Pawn(Board board, Cor cor, ChessMatch chessMatch) {
 		super(board, cor);
-		
+		this.chessMatch = chessMatch;
 	}
 
 	@Override
@@ -39,6 +42,20 @@ public class Pawn extends ChessPiece {
 				mat[p.getLinha()][p.getColuna()] = true;
 				
 			}
+			
+			
+			if(position.getLinha()==3) {
+				Position left = new Position(position.getLinha(), position.getColuna()-1);
+				if(getBoard().positionExists(left) && isThereOpponentPiece(left) && getBoard().piece(left)== chessMatch.getEnPassantVulnerable() ) {
+					mat[left.getLinha()-1][left.getColuna()] = true;
+				}
+				Position right = new Position(position.getLinha(), position.getColuna()+1);
+				if(getBoard().positionExists(right) && isThereOpponentPiece(right) && getBoard().piece(right)== chessMatch.getEnPassantVulnerable() ) {
+					mat[right.getLinha()-1][right.getColuna()] = true;
+				}
+		
+		
+			}
 		
 			
 		} else {	
@@ -65,7 +82,20 @@ public class Pawn extends ChessPiece {
 			
 		}
 	
-			
+		
+		if(position.getLinha()==4) {
+			Position left = new Position(position.getLinha(), position.getColuna()-1);
+			if(getBoard().positionExists(left) && isThereOpponentPiece(left) && getBoard().piece(left)== chessMatch.getEnPassantVulnerable() ) {
+				mat[left.getLinha()+1][left.getColuna()] = true;
+			}
+			Position right = new Position(position.getLinha(), position.getColuna()+1);
+			if(getBoard().positionExists(right) && isThereOpponentPiece(right) && getBoard().piece(right)== chessMatch.getEnPassantVulnerable() ) {
+				mat[right.getLinha()+1][right.getColuna()] = true;
+			}
+	
+	
+		}
+	
 			
 		}
 		
