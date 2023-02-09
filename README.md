@@ -8,3 +8,4 @@ Jogo de Xadrez construído em linhagem Java (Finalizado!)
 ##### 3-Selecione a pasta Bin
 ##### 4-Dentro da pasta Bin pressione o botão esquerdo do mouse e acesse o git bash
 ##### 5-No terminal do git bash digite "java aplicacao/programa" e pressione enter
+![Captura de tela 2023-02-09 195433](https://user-images.githubusercontent.com/13709585/217960395-796e1689-76e2-4759-b3c7-f76d32c42d7d.png)
