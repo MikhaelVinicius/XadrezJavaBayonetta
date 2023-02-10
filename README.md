@@ -1,5 +1,5 @@
 # XadrezJavaBayonetta
-Jogo de Xadrez construído em linhagem Java (Finalizado!)
+Jogo de Xadrez construído em linguagem Java (Finalizado!)
 
 
 # Instalação:
